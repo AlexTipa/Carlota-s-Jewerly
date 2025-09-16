@@ -1,0 +1,478 @@
+/* ======== CONFIGURACIÓN GLOBAL ======== */
+:root {
+    --pink-color: #FFC0CB; /* Rosado principal */
+    --soft-pink: #FFF0F5; /* Rosado muy suave para fondos */
+    --dark-text: #333333; /* Texto principal oscuro */
+    --light-text: #ffffff; /* Texto claro */
+    --gray-text: #777777; /* Texto secundario */
+    --font-primary: 'Playfair Display', serif; /* Títulos y eslogan */
+    --font-secondary: 'Poppins', sans-serif; /* Párrafos y botones */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-secondary);
+    color: var(--dark-text);
+    background-color: #FFFFFF;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-primary);
+    font-weight: 700;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--dark-text);
+}
+
+p {
+    line-height: 1.7;
+    color: var(--gray-text);
+}
+
+/* ======== ANIMACIÓN FADE-IN ======== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* ======== HERO PRINCIPAL ======== */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--light-text);
+    position: relative;
+    background: url('IMG/banner.jpeg') no-repeat center center/cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    animation: fadeInContent 1.5s ease-in-out;
+}
+
+.hero .brand-name {
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.hero .slogan {
+    font-size: 1.5rem;
+    font-family: var(--font-secondary);
+    font-weight: 300;
+    color: var(--light-text);
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--pink-color);
+    color: var(--dark-text);
+    border: 2px solid var(--pink-color);
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 50px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: transparent;
+    color: var(--pink-color);
+    transform: translateY(-3px);
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    color: var(--dark-text);
+    border: 2px solid var(--dark-text);
+}
+
+.cta-button.secondary:hover {
+    background-color: var(--dark-text);
+    color: var(--light-text);
+}
+
+
+/* ======== SECCIONES GENERALES ======== */
+#about { background-color: var(--soft-pink); }
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-image {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.about-image img:hover {
+    transform: scale(1.05);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h2 {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+/* ======== COLECCIONES ======== */
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.collection-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--light-text);
+}
+
+.collection-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.collection-card:hover img {
+    transform: scale(1.1);
+}
+
+.collection-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    text-align: center;
+}
+
+.collection-info h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* ======== GALERÍA (SWIPER) ======== */
+.swiper-container {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: var(--pink-color) !important;
+}
+
+
+/* ======== TESTIMONIOS ======== */
+#testimonials { background-color: var(--soft-pink); }
+
+.testimonials-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+}
+
+.testimonial {
+    max-width: 600px;
+}
+
+.testimonial p {
+    font-family: var(--font-primary);
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--dark-text);
+}
+
+.testimonial span {
+    display: block;
+    margin-top: 10px;
+    font-weight: 500;
+    color: var(--pink-color);
+}
+
+.quality-badge {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fff;
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.quality-badge p {
+    margin: 0;
+    color: var(--dark-text);
+}
+
+/* ======== CTA FINAL ======== */
+#final-cta {
+    text-align: center;
+    background-color: var(--pink-color);
+}
+
+#final-cta h2, #final-cta p {
+    color: var(--dark-text);
+}
+
+#final-cta .cta-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#final-cta .cta-button {
+    background-color: #fff;
+    border-color: #fff;
+}
+#final-cta .cta-button:hover {
+    background-color: transparent;
+    color: #fff;
+}
+#final-cta .cta-button.secondary {
+    background-color: transparent;
+    border-color: #fff;
+    color: #fff;
+}
+#final-cta .cta-button.secondary:hover {
+    background-color: #fff;
+    color: var(--dark-text);
+}
+
+/* ======== UBICACIÓN Y CONTACTO ======== */
+.location-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.location-info { flex: 1; }
+.location-map { flex: 1; border-radius: 10px; overflow: hidden; }
+
+.whatsapp-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    background-color: #128C7E;
+    transform: scale(1.05);
+}
+
+
+/* ======== FOOTER ======== */
+.footer {
+    background-color: var(--soft-pink);
+    padding-top: 60px;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.footer-brand h4 { font-size: 1.5rem; }
+.footer-social { display: flex; gap: 15px; }
+.footer-social img { width: 24px; height: 24px; opacity: 0.6; transition: opacity 0.3s ease; }
+.footer-social a:hover img { opacity: 1; }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { text-decoration: none; color: var(--gray-text); transition: color 0.3s ease; }
+.footer-links a:hover { color: var(--pink-color); }
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #ddd;
+}
+.footer-bottom p { font-size: 0.9rem; color: var(--gray-text); }
+
+/* ======== KEYFRAMES PARA ANIMACIÓN ======== */
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ======== RESPONSIVE DESIGN (Media Queries) ======== */
+
+/* Tablets (hasta 768px) */
+@media (max-width: 768px) {
+    h2 { font-size: 2rem; }
+    .hero .brand-name { font-size: 3rem; }
+    .hero .slogan { font-size: 1.2rem; }
+
+    .about-content, .location-content {
+        flex-direction: column;
+    }
+    
+    .about-text { text-align: center; }
+    .about-text h2 { text-align: center; }
+    .about-content { flex-direction: column-reverse; } /* Poner texto arriba de imagen */
+
+    .collections-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Móviles (hasta 480px) */
+@media (max-width: 480px) {
+    .container { padding: 60px 20px; }
+    .hero .brand-name { font-size: 2.5rem; }
+    .hero .slogan { font-size: 1rem; }
+
+    .collections-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* ======== GALERÍA MEJORADA (SWIPER COVERFLOW) ======== */
+.gallery-section {
+    background-color: var(--soft-pink); /* Un fondo suave para destacar el carrusel */
+    padding: 80px 0; /* Ajustamos el padding para que no se pegue */
+}
+
+.swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 320px; /* Ancho de la tarjeta central */
+    height: 400px; /* Altura de la tarjeta */
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2); /* Sombra para efecto 3D */
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Estilos para el efecto de reflejo */
+.swiper-container .swiper-slide-shadow-left,
+.swiper-container .swiper-slide-shadow-right {
+    background-image: none; /* Quitamos las sombras por defecto que no se ven bien */
+}
+
+/* Ajustes para el paginador */
+.swiper-pagination-bullet-active {
+    background-color: var(--dark-text) !important; /* Hacemos el punto activo más visible */
+}
+
+/* ======== Media Queries para el carrusel responsivo ======== */
+
+/* Tablets */
+@media (max-width: 768px) {
+    .swiper-slide {
+        width: 280px;
+        height: 360px;
+    }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+    .swiper-slide {
+        width: 240px;
+        height: 320px;
+    }
+}
