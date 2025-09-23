@@ -126,7 +126,7 @@ p {
 }
 
 
-/* ======== SECCIONES GENERALES ======== */
+/* ======== SECCIÓN SOBRE NOSOTROS ======== */
 #about { background-color: var(--soft-pink); }
 
 .about-content {
@@ -203,20 +203,42 @@ p {
     font-size: 1.5rem;
 }
 
-/* ======== GALERÍA (SWIPER) ======== */
+/* ======== NUEVO DISEÑO DE GALERÍA (CARRUSEL DESLIZABLE) ======== */
+.gallery-section {
+    background-color: var(--soft-pink);
+    padding: 80px 0; /* Espaciado generoso en pantallas grandes */
+    overflow: hidden; /* Asegura que el contenido del carrusel no se desborde */
+}
+
+.gallery-section .container {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%; /* Permitimos que el carrusel ocupe todo el ancho */
+}
+
+.gallery-section h2 {
+    padding-left: 20px; /* Añadimos padding al título para que no se pegue al borde */
+    padding-right: 20px;
+}
+
 .swiper-container {
     width: 100%;
-    height: 400px;
-    border-radius: 10px;
+    height: auto; /* La altura se adaptará al contenido */
+    padding: 20px 0 40px 0; /* Espacio para el paginador */
 }
 
 .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: auto; /* La altura se adapta automáticamente */
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    opacity: 0.7; /* Hacemos las diapositivas no activas un poco transparentes */
+    transform: scale(0.9); /* Hacemos las diapositivas no activas un poco más pequeñas */
+}
+
+.swiper-slide-active {
+    opacity: 1; /* La diapositiva del centro es 100% opaca */
+    transform: scale(1); /* La diapositiva del centro tiene su tamaño original */
 }
 
 .swiper-slide img {
@@ -226,13 +248,9 @@ p {
     object-fit: cover;
 }
 
-.swiper-pagination-bullet-active {
-    background-color: var(--pink-color) !important;
-}
-
 
 /* ======== TESTIMONIOS ======== */
-#testimonials { background-color: var(--soft-pink); }
+#testimonials { background-color: #FFFFFF; } /* Cambiado a blanco para separar de la galería */
 
 .testimonials-content {
     display: flex;
@@ -265,10 +283,9 @@ p {
     display: flex;
     align-items: center;
     gap: 15px;
-    background: #fff;
+    background: var(--soft-pink); /* Un fondo suave para el badge */
     padding: 15px 25px;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 .quality-badge p {
@@ -384,6 +401,14 @@ p {
 
 /* ======== RESPONSIVE DESIGN (Media Queries) ======== */
 
+/* Tablets (hasta 1024px) */
+@media (max-width: 1024px) {
+    .collections-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
 /* Tablets (hasta 768px) */
 @media (max-width: 768px) {
     h2 { font-size: 2rem; }
@@ -397,10 +422,6 @@ p {
     .about-text { text-align: center; }
     .about-text h2 { text-align: center; }
     .about-content { flex-direction: column-reverse; } /* Poner texto arriba de imagen */
-
-    .collections-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
 }
 
 /* Móviles (hasta 480px) */
@@ -413,66 +434,12 @@ p {
         grid-template-columns: 1fr;
     }
 
+    .gallery-section {
+        padding: 60px 0;
+    }
+
     .footer-content {
         flex-direction: column;
         text-align: center;
-    }
-}
-/* ======== GALERÍA MEJORADA (SWIPER COVERFLOW) ======== */
-.gallery-section {
-    background-color: var(--soft-pink); /* Un fondo suave para destacar el carrusel */
-    padding: 80px 0; /* Ajustamos el padding para que no se pegue */
-}
-
-.swiper-container {
-    width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-
-.swiper-slide {
-    background-position: center;
-    background-size: cover;
-    width: 320px; /* Ancho de la tarjeta central */
-    height: 400px; /* Altura de la tarjeta */
-    background: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2); /* Sombra para efecto 3D */
-}
-
-.swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Estilos para el efecto de reflejo */
-.swiper-container .swiper-slide-shadow-left,
-.swiper-container .swiper-slide-shadow-right {
-    background-image: none; /* Quitamos las sombras por defecto que no se ven bien */
-}
-
-/* Ajustes para el paginador */
-.swiper-pagination-bullet-active {
-    background-color: var(--dark-text) !important; /* Hacemos el punto activo más visible */
-}
-
-/* ======== Media Queries para el carrusel responsivo ======== */
-
-/* Tablets */
-@media (max-width: 768px) {
-    .swiper-slide {
-        width: 280px;
-        height: 360px;
-    }
-}
-
-/* Móviles */
-@media (max-width: 480px) {
-    .swiper-slide {
-        width: 240px;
-        height: 320px;
     }
 }
